@@ -12,3 +12,8 @@ test*
 srcs/temp*
 42header
 *.out
+star.s
+temp
+factorial.s
+ft_show_registre.s
+hello_world.s

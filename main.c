@@ -6,7 +6,7 @@
 /*   By: cdai <cdai@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/11 14:59:45 by cdai              #+#    #+#             */
-/*   Updated: 2020/10/07 14:28:26 by marvin           ###   ########.fr       */
+/*   Updated: 2020/10/07 16:30:54 by cdai             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,169 +14,276 @@
 
 int main()
 {
-//	int *testerr = __errno_location();
-	// hello();
-	// star();
-	// hello();
-	// star();
-	// printf("%d\n", factorial(10));
-
-	printf("\n");
-	printf("\t|| ft_strlen ||\n");
-	printf("strlen(\"pouet\"): \t|%ld|\n", strlen("pouet"));
-	printf("ft_strlen(\"pouet\"): \t|%d|\n\n", ft_strlen("pouet"));
-
-	char *pouet = NULL;
-	// printf("strlen(null): %ld\n", strlen(pouet));
-	// printf("ft_strlen(null): %d\n", ft_strlen(pouet));
-
+	int fd;
+	char *pouet;
 	char src[] = "coucou";
 	char *dest = calloc(1, 7);
+
+	printf("\t|| ft_strlen ||");
+printf("\n");
+	printf("strlen(\"pouet\"): \t|%ld|", strlen("pouet"));
+printf("\n");
+	printf("ft_strlen(\"pouet\"): \t|%d|", ft_strlen("pouet"));
+printf("\n");
+printf("\n");
+
+	printf("strlen(null): %ld\n", strlen(pouet));
+	printf("ft_strlen(null): %d\n", ft_strlen(pouet));
+
+printf("\n");
+printf("\n");
+
 	dest[0] = 'p';
+	printf("||ft_strcpy||");
+printf("\n");
+	printf("before ft_strcpy src: |%s|, dest: |%s|", src, dest);
+printf("\n");
+	printf("ft_strcpy(dest, src): \t|%s|", ft_strcpy(dest, src));
+printf("\n");
+	printf("after ft_strcpy src: |%s|, dest: |%s|", src, dest);
+printf("\n");
+printf("\n");
 
-	printf("||ft_strcpy||\n");
-	printf("before strcpy src: |%s|, dest: |%s|\n", src, dest);
-	printf("ft_strcpy(dest, src): \t|%s|\n", ft_strcpy(dest, src));
-	printf("after strcpy src: |%s|, dest: |%s|\n\n", src, dest);
+	printf("||ft_strcmp||");
+printf("\n");
+	printf("before ft_strcmp src: |%s|, dest: |%s|", src, dest);
+printf("\n");
+	printf("ft_strcmp(dest, src): |%d|", ft_strcmp(dest, src));
+printf("\n");
+	printf("after ft_strcmp src: |%s|, dest: |%s|", src, dest);
+printf("\n");
 
-	printf("||ft_strcmp||\n");
-	printf("before strcmp src: |%s|, dest: |%s|\n", src, dest);
-	printf("ft_strcmp(dest, src): |%d|\n", ft_strcmp(dest, src));
-	printf("after strcmp src: |%s|, dest: |%s|\n", src, dest);
-	printf("strcmp(\"1\", \"2\"): \t|%d|\n", strcmp("1", "2"));
-	printf("ft_strcmp(\"1\", \"2\"): \t|%d|\n", ft_strcmp("1", "2"));
-	printf("strcmp(\"2\", \"2\"): \t|%d|\n", strcmp("2", "2"));
-	printf("ft_strcmp(\"2\", \"2\"): \t|%d|\n", ft_strcmp("2", "2"));
-	printf("strcmp(\"3\", \"2\"): \t|%d|\n", strcmp("3", "2"));
-	printf("ft_strcmp(\"3\", \"2\"): \t|%d|\n", ft_strcmp("3", "2"));
+	printf("strcmp(\"1\", \"2\"): \t|%d|", strcmp("1", "2"));
+printf("\n");
+	printf("ft_strcmp(\"1\", \"2\"): \t|%d|", ft_strcmp("1", "2"));
+printf("\n");
+	printf("strcmp(\"2\", \"2\"): \t|%d|", strcmp("2", "2"));
+printf("\n");
+	printf("ft_strcmp(\"2\", \"2\"): \t|%d|", ft_strcmp("2", "2"));
+printf("\n");
+	printf("strcmp(\"3\", \"2\"): \t|%d|", strcmp("3", "2"));
+printf("\n");
+	printf("ft_strcmp(\"3\", \"2\"): \t|%d|", ft_strcmp("3", "2"));
+printf("\n");
 	
-	printf("strcmp(\"12\", \"2\"): \t|%d|\n", strcmp("12", "2"));
-	printf("ft_strcmp(\"12\", \"2\"): \t|%d|\n", ft_strcmp("12", "2"));
-	printf("strcmp(\"22\", \"2\"): \t|%d|\n", strcmp("22", "2"));
-	printf("ft_strcmp(\"22\", \"2\"): \t|%d|\n", ft_strcmp("22", "2"));
-	printf("strcmp(\"32\", \"2\"): \t|%d|\n", strcmp("32", "2"));
-	printf("ft_strcmp(\"32\", \"2\"): \t|%d|\n", ft_strcmp("32", "2"));
-	printf("|%d|\n\n", strcmp(pouet, pouet));
+	printf("strcmp(\"12\", \"2\"): \t|%d|", strcmp("12", "2"));
+printf("\n");
+	printf("ft_strcmp(\"12\", \"2\"): \t|%d|", ft_strcmp("12", "2"));
+printf("\n");
+	printf("strcmp(\"22\", \"2\"): \t|%d|", strcmp("22", "2"));
+printf("\n");
+	printf("ft_strcmp(\"22\", \"2\"): \t|%d|", ft_strcmp("22", "2"));
+printf("\n");
+	printf("strcmp(\"32\", \"2\"): \t|%d|", strcmp("32", "2"));
+printf("\n");
+	printf("ft_strcmp(\"32\", \"2\"): \t|%d|", ft_strcmp("32", "2"));
+printf("\n");
+	printf("strcmp(pouet, pouet): \t|%d|", strcmp(pouet, pouet));
+printf("\n");
+	printf("ft_strcmp(pouet, pouet):|%d|", ft_strcmp(pouet, pouet));
+printf("\n");
+	printf("strcmp(NULL, NULL): \t|%d|", strcmp(NULL, NULL));
+printf("\n");
+	printf("ft_strcmp(NULL, NULL): \t|%d|", ft_strcmp(NULL, NULL));
+printf("\n");
+//segfault
+//	printf("strcmp(NULL, pouet): \t|%d|", strcmp(NULL, pouet));
+//printf("\n");
+//	printf("strcmp(pouet, NULL): \t|%d|", strcmp(pouet, NULL));
+//printf("\n");
 
+/*
 	char s[] = "pouet";
-	printf("\t||ft_write||\n");
+	printf("\t||ft_write||");
+printf("\n");
 	int test = ft_write(1, s, 5);
+printf("\n");
 	printf("\ns[] = \"pouet\"");
-	printf("\nft_write(1, s, 5): |%d|\n", test);
+printf("\n");
+	printf("ft_write(1, s, 5): |%d|", test);
+printf("\n");
 	test = ft_write(2, s, 5);
-	printf("\ns[] = \"pouet\"");
-	printf("\nft_write(2, s, 5): |%d|\n\n", test);
+printf("\n");
+	printf("s[] = \"pouet\"");
+printf("\n");
+	printf("ft_write(2, s, 5): |%d|", test);
+printf("\n");
+printf("\n");
 
 // comparaison avec le vrai write
 	test = write(1, s, -5);
-	printf("\ns[] = \"pouet\"");
-	printf("\nwrite(1, s, -5): |%d|\n", test);
-	printf("errno: %d\n", errno);
+printf("\n");
+	printf("s[] = \"pouet\"");
+printf("\n");
+	printf("write(1, s, -5): |%d|", test);
+printf("\n");
+	printf("errno: %d", errno);
+printf("\n");
 
 	
 	test = write(-5, s, 1);
-	printf("\ns[] = \"pouet\"");
-	printf("\nwrite(-5, s, 1): |%d|\n", test);
-	printf("errno: %d\n", errno);
+printf("\n");
+	printf("s[] = \"pouet\"");
+printf("\n");
+	printf("write(-5, s, 1): |%d|", test);
+printf("\n");
+	printf("errno: %d", errno);
+printf("\n");
 
 	errno = 10;
 	test = write(-5, s, 0);
-	printf("\ns[] = \"pouet\"");
-	printf("\nwrite(-5, s, 0): |%d|\n", test);
-	printf("errno: %d\n", errno);
+printf("\n");
+	printf("s[] = \"pouet\"");
+printf("\n");
+	printf("write(-5, s, 0): |%d|", test);
+printf("\n");
+	printf("errno: %d", errno);
+printf("\n");
 
 	errno = 10;
 	test = write(5, s, 0);
-	printf("\ns[] = \"pouet\"");
-	printf("\nwrite(5, s, 0): |%d|\n", test);
-	printf("errno: %d\n", errno);
+printf("\n");
+	printf("s[] = \"pouet\"");
+printf("\n");
+	printf("write(5, s, 0): |%d|", test);
+printf("\n");
+	printf("errno: %d", errno);
+printf("\n");
 
 	errno = 10;
 	test = ft_write(1, s, -5);
-	printf("\ns[] = \"pouet\"");
-	printf("\nft_write(1, s, -5): |%d|\n", test);
-	printf("errno: %d\n", errno);
+printf("\n");
+	printf("s[] = \"pouet\"");
+printf("\n");
+	printf("ft_write(1, s, -5): |%d|", test);
+printf("\n");
+	printf("errno: %d", errno);
+printf("\n");
 
 	
 	errno = 10;
 	test = ft_write(-5, s, 1);
-	printf("\ns[] = \"pouet\"");
-	printf("\nft_write(-5, s, 1): |%d|\n", test);
-	printf("errno: %d\n", errno);
+printf("\n");
+	printf("s[] = \"pouet\"");
+printf("\n");
+	printf("ft_write(-5, s, 1): |%d|", test);
+printf("\n");
+	printf("errno: %d", errno);
+printf("\n");
 
 	errno = 10;
 	test = ft_write(-5, s, 0);
-	printf("\ns[] = \"pouet\"");
-	printf("\nft_write(-5, s, 0): |%d|\n", test);
-	printf("errno: %d\n", errno);
+printf("\n");
+	printf("s[] = \"pouet\"");
+printf("\n");
+	printf("ft_write(-5, s, 0): |%d|", test);
+printf("\n");
+	printf("errno: %d", errno);
+printf("\n");
 
 	errno = 10;
 	test = ft_write(5, s, 0);
-	printf("\ns[] = \"pouet\"");
-	printf("\nft_write(5, s, 0): |%d|\n", test);
-	printf("errno: %d\n", errno);
+printf("\n");
+	printf("s[] = \"pouet\"");
+printf("\n");
+	printf("ft_write(5, s, 0): |%d|", test);
+printf("\n");
+	printf("errno: %d", errno);
+printf("\n");
+
 	errno = 10;
-	printf("\nerrno: %d\n", errno);
+printf("\n");
+	printf("errno: %d", errno);
+printf("\n");
 	test = ft_write(5, s, -5);
 	printf("s[] = \"pouet\"");
-	printf("\nft_write(5, s, -5): |%d|\n", test);
-	printf("errno: %d\n\n", errno);
+printf("\n");
+	printf("ft_write(5, s, -5): |%d|", test);
+printf("\n");
+	printf("errno: %d", errno);
+printf("\n");
+printf("\n");
 
 
-	printf("\t||ft_read||\n");
+	printf("\t||ft_read||");
+printf("\n");
 	errno = 10;
-	int fd = open("main.c", O_RDONLY);
+	fd = open("main.c", O_RDONLY);
 	char *r = calloc(1, 11);
 	int testread = read(fd, r, 10);
-	printf("buffer = |%s|\nread return = |%d|\n\n", r, testread);
+	printf("buffer = |%s|\nread return = |%d|", r, testread);
+printf("\n");
+printf("\n");
 	close(fd);
-	printf("errno: %d\n\n", errno);
+	printf("errno: %d", errno);
+printf("\n");
+printf("\n");
 
 	errno = 10;
 	fd = open("main.c", O_RDONLY);
 	testread = ft_read(fd, r, 10);
-	printf("buffer = |%s|\nft_read return = |%d|\n\n", r, testread);
+	printf("buffer = |%s|\nft_read return = |%d|", r, testread);
+printf("\n");
+printf("\n");
 	close(fd);
-	printf("errno: %d\n\n", errno);
+	printf("errno: %d", errno);
+printf("\n");
+printf("\n");
 
 	errno = 10;
 	testread = read(-1, r, 10);
-	printf("buffer = |%s|\nread return = |%d|\n\n", r, testread);
-	printf("errno: %d\n\n", errno);
+	printf("buffer = |%s|\nread return = |%d|", r, testread);
+printf("\n");
+printf("\n");
+	printf("errno: %d", errno);
+printf("\n");
+printf("\n");
 	
 	errno = 10;
 	testread = ft_read(fd, r, 10);
-	printf("buffer = |%s|\nft_read return = |%d|\n\n", r, testread);
-	printf("errno: %d\n\n", errno);
+	printf("buffer = |%s|\nft_read return = |%d|", r, testread);
+printf("\n");
+printf("\n");
+	printf("errno: %d", errno);
+printf("\n");
+printf("\n");
 	
 	errno = 10;
 	char *rd;
 	fd = open("main.c", O_RDONLY);
 	testread = read(fd, rd, 10);
-	printf("buffer = |%s|\nread return = |%d|\n\n", r, testread);
-	printf("errno: %d\n\n", errno);
+	printf("buffer = |%s|\nread return = |%d|", r, testread);
+printf("\n");
+printf("\n");
+	printf("errno: %d", errno);
+printf("\n");
+printf("\n");
 	close(fd);
 	
 	errno = 10;
 	fd = open("main.c", O_RDONLY);
 	testread = ft_read(fd, rd, 10);
-	printf("buffer = |%s|\nft_read return = |%d|\n\n", r, testread);
-	printf("errno: %d\n\n", errno);
+	printf("buffer = |%s|\nft_read return = |%d|", r, testread);
+printf("\n");
+printf("\n");
+	printf("errno: %d", errno);
+printf("\n");
+printf("\n");
 	close(fd);
 
 free(r);
-	printf("\n\t||ft_strdup||\n");
+
+printf("\n");
+	printf("\t||ft_strdup||");
+printf("\n");
 	char *test_strdup;
 	char str[] = "coucou c'est trop cool de faire du code";
 	test_strdup = ft_strdup(str);
-	printf("|%s|\n", test_strdup);
+	printf("|%s|", test_strdup);
+printf("\n");
 	free(test_strdup);
+*/
 
-//	printf("La fonction qui suit est faite pour savoir quelques sont les registres par rapport a ses variables.\n");
-//	char euh[] = "1";
-//	int ret = ft_show_registre(euh, "2", -3);
-//	printf("%d\n", ret);
-	
 	return (0);
 }
 

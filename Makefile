@@ -16,7 +16,7 @@ SRCS	=	\
 			ft_write.s\
 			ft_read.s\
 			ft_strdup.s\
-			ft_show_registre.s\
+			# ft_show_registre.s\
 			# hello_world.s\
 			# star.s\
 			# factorial.s\

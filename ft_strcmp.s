@@ -4,6 +4,8 @@
 
 ;_ft_strcmp
 ft_strcmp:
+	cmp		rdi, rsi
+	je		cmp_ret0
     mov     al, byte [rdi]
     mov     cl, byte [rsi]
 
