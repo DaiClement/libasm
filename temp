@@ -1,0 +1,47 @@
+gcc  -no-pie -o main.out main.o libasm.a -I.;
+./main.out;
+pouet
+	|| ft_strlen ||
+strlen("pouet"): 	|5|
+ft_strlen("pouet"): 	|5|
+
+||ft_strcpy||
+before strcpy src: |coucou|, dest: |p|
+ft_strcpy(dest, src): 	|coucou|
+after strcpy src: |coucou|, dest: |coucou|
+
+||ft_strcmp||
+before strcmp src: |coucou|, dest: |coucou|
+ft_strcmp(dest, src): |0|
+after strcmp src: |coucou|, dest: |coucou|
+strcmp("1", "2"): 	|-1|
+ft_strcmp("1", "2"): 	|-1|
+strcmp("2", "2"): 	|0|
+ft_strcmp("2", "2"): 	|0|
+strcmp("3", "2"): 	|1|
+ft_strcmp("3", "2"): 	|1|
+strcmp("12", "2"): 	|-1|
+ft_strcmp("12", "2"): 	|-1|
+strcmp("22", "2"): 	|1|
+ft_strcmp("22", "2"): 	|1|
+strcmp("32", "2"): 	|1|
+ft_strcmp("32", "2"): 	|1|
+|0|
+
+	||ft_write||
+
+s[] = "pouet"
+ft_write(1, s, 5): |5|
+
+s[] = "pouet"
+ft_write(2, s, 5): |5|
+
+
+s[] = "pouet"
+write(1, s, -5): |-1|
+errno: 14
+
+	||ft_strdup||
+|coucou c'est trop cool de faire du code|
+La fonction qui suit est faite pour savoir quelques sont les registres par rapport a ses variables.
+3

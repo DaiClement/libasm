@@ -1,0 +1,14 @@
+libasm.a
+*.o
+*/*.o
+*/*.a
+.DS*
+*/*DS*
+*.swp
+*/*.swp
+note
+test*
+*.bmp
+srcs/temp*
+42header
+*.out
