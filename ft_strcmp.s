@@ -10,14 +10,17 @@ ft_strcmp:
     mov     cl, byte [rsi]
 
 strcmp_cmp:
-    mov     dl, al
-    sub     dl, cl
-    cmp     dl, 0
-    jg      cmp_ret1
-    cmp     dl, 0
-    jl      cmp_ret_neg
+    movzx   rdx, al
+    movzx   rbx, cl
+	sub		rdx, rbx
+	cmp		cl, 0
+	je		cmp_ret1
     cmp     al, 0
-    je      cmp_ret0
+    je      cmp_ret_neg
+    cmp     rdx, 0
+    jg      cmp_ret
+    cmp     rdx, 0
+    jl      cmp_ret
     inc     rdi
     inc     rsi
     mov     al, byte [rdi]
@@ -25,13 +28,17 @@ strcmp_cmp:
     jmp     strcmp_cmp
 
 cmp_ret1:
-    mov     rax, 1
+    mov		rax, 1
     ret
+
+cmp_ret_neg:
+	mov		rax, -1
+	ret
 
 cmp_ret0:
     mov     rax, 0
     ret
 
-cmp_ret_neg:
-    mov     rax, -1
+cmp_ret:
+    mov		rax, rdx
     ret

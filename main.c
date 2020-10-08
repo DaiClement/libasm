@@ -6,7 +6,7 @@
 /*   By: cdai <cdai@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/11 14:59:45 by cdai              #+#    #+#             */
-/*   Updated: 2020/10/07 16:30:54 by cdai             ###   ########.fr       */
+/*   Updated: 2020/10/08 09:39:32 by cdai             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,32 +19,130 @@ int main()
 	char src[] = "coucou";
 	char *dest = calloc(1, 7);
 
+/* strlen */
 	printf("\t|| ft_strlen ||");
+printf("\n");
+
+printf("test 1");
 printf("\n");
 	printf("strlen(\"pouet\"): \t|%ld|", strlen("pouet"));
 printf("\n");
 	printf("ft_strlen(\"pouet\"): \t|%d|", ft_strlen("pouet"));
 printf("\n");
+
+printf("test 2");
+printf("\n");
+	printf("strlen(null): \t\t|%ld|", strlen(pouet));
+printf("\n");
+	printf("ft_strlen(null): \t|%d|", ft_strlen(pouet));
 printf("\n");
 
-	printf("strlen(null): %ld\n", strlen(pouet));
-	printf("ft_strlen(null): %d\n", ft_strlen(pouet));
-
+printf("test 3");
+printf("\n");
+	printf("strlen(\"\"): \t\t|%ld|", strlen(""));
+printf("\n");
+	printf("ft_strlen(\"\"): \t\t|%d|", ft_strlen(""));
+printf("\n");
+	
 printf("\n");
 printf("\n");
 
-	dest[0] = 'p';
-	printf("||ft_strcpy||");
+/* strcpy */
+printf("\t|| ft_strcpy ||");
 printf("\n");
-	printf("before ft_strcpy src: |%s|, dest: |%s|", src, dest);
+
+printf("test 1");
+printf("\n");
+bzero(dest, 7);
+*dest = 'p';
+	printf("before strcpy src: \t|%s|, dest: \t|%s|", src, dest);
+printf("\n");
+	printf("strcpy(dest, src): \t|%s|", strcpy(dest, src));
+printf("\n");
+	printf("after strcpy src: \t|%s|, dest: \t|%s|", src, dest);
+printf("\n");
+bzero(dest, 7);
+*dest = 'p';
+	printf("before ft_strcpy src: \t|%s|, dest: \t|%s|", src, dest);
 printf("\n");
 	printf("ft_strcpy(dest, src): \t|%s|", ft_strcpy(dest, src));
 printf("\n");
-	printf("after ft_strcpy src: |%s|, dest: |%s|", src, dest);
+	printf("after ft_strcpy src: \t|%s|, dest: \t|%s|", src, dest);
+printf("\n");
+
+// SEGFAULT
+/*
+printf("test segfault");
+printf("\n");
+bzero(dest, 7);
+*dest = 'p';
+	printf("before strcpy src: \t|NULL|, dest: \t|%s|", dest);
+printf("\n");
+	printf("strcpy(dest, NULL): \t|%s|", strcpy(dest, NULL));
+printf("\n");
+	printf("after strcpy src: \t|NULL|, dest: \t|%s|", dest);
+printf("\n");
+bzero(dest, 7);
+*dest = 'p';
+	printf("before ft_strcpy src: \t|NULL|, dest: \t|%s|", dest);
+printf("\n");
+	printf("ft_strcpy(dest, NULL): \t|%s|", ft_strcpy(dest, NULL));
+printf("\n");
+	printf("after ft_strcpy src: \t|NULL|, dest: \t|%s|", dest);
+printf("\n");
+*/
+
+/*
+printf("test segfault");
+printf("\n");
+bzero(dest, 7);
+*dest = 'p';
+	printf("before strcpy src: \t|%s|, dest: \t|NULL|", src);
+printf("\n");
+	printf("strcpy(NULL, src): \t|%s|", strcpy(NULL, src));
+printf("\n");
+	printf("after strcpy src: \t|%s|, dest: \t|NULL|", src);
+printf("\n");
+bzero(dest, 7);
+*dest = 'p';
+	printf("before ft_strcpy src: \t|%s|, dest: \t|NULL|", src);
+printf("\n");
+	printf("ft_strcpy(NULL, src): \t|%s|", ft_strcpy(NULL, src));
+printf("\n");
+	printf("after ft_strcpy src: \t|%S|, dest: \t|NULL|", src);
+printf("\n");
+*/
+
+printf("test 2");
+printf("\n");
+bzero(dest, 7);
+*dest = 'p';
+	printf("before strcpy src: \t|NULL|, dest: \t|NULL|");
+printf("\n");
+	printf("strcpy(NULL, NULL): \t|%s|", strcpy(NULL, NULL));
+printf("\n");
+	printf("after strcpy src: \t|NULL|, dest: \t|NULL|", NULL);
+printf("\n");
+bzero(dest, 7);
+*dest = 'p';
+	printf("before ft_strcpy src: \t|NULL|, dest: \t|NULL|");
+printf("\n");
+	printf("ft_strcpy(NULL, NULL): \t|%s|", ft_strcpy(NULL, NULL));
+printf("\n");
+	printf("after ft_strcpy src: \t|NULL|, dest: \t|NULL|", NULL);
 printf("\n");
 printf("\n");
 
-	printf("||ft_strcmp||");
+/* strcmp */
+	printf("|| ft_strcmp ||");
+printf("\n");
+printf("test 1");
+printf("\n");
+	printf("before strcmp src: |%s|, dest: |%s|", src, dest);
+printf("\n");
+	printf("strcmp(dest, src): |%d|", strcmp(dest, src));
+printf("\n");
+	printf("after strcmp src: |%s|, dest: |%s|", src, dest);
 printf("\n");
 	printf("before ft_strcmp src: |%s|, dest: |%s|", src, dest);
 printf("\n");
@@ -53,17 +151,22 @@ printf("\n");
 	printf("after ft_strcmp src: |%s|, dest: |%s|", src, dest);
 printf("\n");
 
-	printf("strcmp(\"1\", \"2\"): \t|%d|", strcmp("1", "2"));
+	printf("strcmp(\"9gag9\", \"9gag;\"): |%d|", strcmp("9gag9", "9gag;"));
 printf("\n");
-	printf("ft_strcmp(\"1\", \"2\"): \t|%d|", ft_strcmp("1", "2"));
+	printf("ft_strcmp(\"9gag9\", \"9gag;\"): |%d|", ft_strcmp("9gag9", "9gag;"));
+printf("\n");
+
+	printf("strcmp(\"1\", \"9\"): \t|%d|", strcmp("1", "9"));
+printf("\n");
+	printf("ft_strcmp(\"1\", \"9\"): \t|%d|", ft_strcmp("1", "9"));
 printf("\n");
 	printf("strcmp(\"2\", \"2\"): \t|%d|", strcmp("2", "2"));
 printf("\n");
 	printf("ft_strcmp(\"2\", \"2\"): \t|%d|", ft_strcmp("2", "2"));
 printf("\n");
-	printf("strcmp(\"3\", \"2\"): \t|%d|", strcmp("3", "2"));
+	printf("strcmp(\"7\", \"2\"): \t|%d|", strcmp("7", "2"));
 printf("\n");
-	printf("ft_strcmp(\"3\", \"2\"): \t|%d|", ft_strcmp("3", "2"));
+	printf("ft_strcmp(\"7\", \"2\"): \t|%d|", ft_strcmp("7", "2"));
 printf("\n");
 	
 	printf("strcmp(\"12\", \"2\"): \t|%d|", strcmp("12", "2"));
@@ -77,6 +180,14 @@ printf("\n");
 	printf("strcmp(\"32\", \"2\"): \t|%d|", strcmp("32", "2"));
 printf("\n");
 	printf("ft_strcmp(\"32\", \"2\"): \t|%d|", ft_strcmp("32", "2"));
+printf("\n");
+	printf("strcmp(\"2\", \"32\"): \t|%d|", strcmp("2", "32"));
+printf("\n");
+	printf("ft_strcmp(\"2\", \"32\"): \t|%d|", ft_strcmp("2", "32"));
+printf("\n");
+	printf("strcmp(\"2\", \"26\"): \t|%d|", strcmp("2", "26"));
+printf("\n");
+	printf("ft_strcmp(\"2\", \"26\"): \t|%d|", ft_strcmp("2", "26"));
 printf("\n");
 	printf("strcmp(pouet, pouet): \t|%d|", strcmp(pouet, pouet));
 printf("\n");
