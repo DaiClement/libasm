@@ -18,9 +18,9 @@ strcmp_cmp:
     cmp     al, 0
     je      cmp_ret_neg
     cmp     rdx, 0
-    jg      cmp_ret
+    jg      cmp_ret1
     cmp     rdx, 0
-    jl      cmp_ret
+    jl      cmp_ret_neg
     inc     rdi
     inc     rsi
     mov     al, byte [rdi]
@@ -37,8 +37,4 @@ cmp_ret_neg:
 
 cmp_ret0:
     mov     rax, 0
-    ret
-
-cmp_ret:
-    mov		rax, rdx
     ret
