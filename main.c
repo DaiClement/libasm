@@ -6,7 +6,7 @@
 /*   By: cdai <cdai@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/11 14:59:45 by cdai              #+#    #+#             */
-/*   Updated: 2020/10/08 13:35:02 by cdai             ###   ########.fr       */
+/*   Updated: 2020/10/08 14:19:39 by cdai             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int main()
 {
 	int fd;
-	char *pouet;
+	char *no_malloc;
 	char src[] = "coucou";
 	char *dest = calloc(1, 7);
 
@@ -30,21 +30,31 @@ printf("\n");
 	printf("ft_strlen(\"pouet\"): \t|%d|", ft_strlen("pouet"));
 printf("\n");
 
-printf("test 2");
+/*
+printf("test segfault time-to-time (cause of luck)");
 printf("\n");
-	printf("strlen(null): \t\t|%ld|", strlen(pouet));
+	printf("strlen(no_malloc): \t|%ld|", strlen(no_malloc));
 printf("\n");
-	printf("ft_strlen(null): \t|%d|", ft_strlen(pouet));
+	printf("ft_strlen(no_malloc): \t|%d|", ft_strlen(no_malloc));
 printf("\n");
+*/
 
-printf("test 3");
+printf("test 2");
 printf("\n");
 	printf("strlen(\"\"): \t\t|%ld|", strlen(""));
 printf("\n");
 	printf("ft_strlen(\"\"): \t\t|%d|", ft_strlen(""));
 printf("\n");
 	
+/*
+printf("test segfault");
 printf("\n");
+	printf("strlen(NULL): \t\t|%ld|", strlen(NULL));
+printf("\n");
+	printf("ft_strlen(NULL): \t\t|%d|", ft_strlen(NULL));
+printf("\n");
+*/
+	
 printf("\n");
 
 /* strcpy */
@@ -230,9 +240,9 @@ printf("\n");
 
 printf("test 11");
 printf("\n");
-	printf("strcmp(pouet, pouet): \t|%d|", strcmp(pouet, pouet));
+	printf("strcmp(no_malloc, no_malloc): \t|%d|", strcmp(no_malloc, no_malloc));
 printf("\n");
-	printf("ft_strcmp(pouet, pouet):|%d|", ft_strcmp(pouet, pouet));
+	printf("ft_strcmp(no_malloc, no_malloc):|%d|", ft_strcmp(no_malloc, no_malloc));
 printf("\n");
 
 printf("test 12");
@@ -714,6 +724,8 @@ printf("\n");
 
 
 char *test_strdup;
+char *test_ft_strdup;
+test_strdup = NULL;
 char str[] = "coucou c'est trop cool de faire du code";
 	printf("\t|| ft_strdup ||");
 printf("\n");
@@ -722,11 +734,26 @@ printf("\n");
 	test_strdup = strdup(str);
 	printf("strdup(str): \t\t|%s|", test_strdup);
 printf("\n");
-	free(test_strdup);
-	test_strdup = ft_strdup(str);
-	printf("ft_strdup(str): \t|%s|", test_strdup);
+printf("str: %p\ntest_strdup: %p\n", str, test_strdup);
+	test_ft_strdup = ft_strdup(str);
+	printf("ft_strdup(str): \t|%s|", test_ft_strdup);
 printf("\n");
+printf("str: %p\ntest_strdup: %p\n", str, test_ft_strdup);
 	free(test_strdup);
+	free(test_ft_strdup);
+
+printf("test 1");
+printf("\n");
+	test_strdup = strdup("");
+	printf("strdup(\"\"): \t|%s|", test_strdup);
+printf("\n");
+printf("str: %p\ntest_strdup: %p\n", "", test_strdup);
+	test_ft_strdup = ft_strdup("");
+	printf("ft_strdup(\"\"): \t|%s|", test_ft_strdup);
+printf("\n");
+printf("str: %p\ntest_strdup: %p\n", "", test_ft_strdup);
+	free(test_strdup);
+	free(test_ft_strdup);
 
 /*
 printf("test segfault");
