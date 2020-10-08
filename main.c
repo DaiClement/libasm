@@ -6,7 +6,7 @@
 /*   By: cdai <cdai@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/11 14:59:45 by cdai              #+#    #+#             */
-/*   Updated: 2020/10/08 14:19:39 by cdai             ###   ########.fr       */
+/*   Updated: 2020/10/08 14:25:20 by cdai             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -286,7 +286,23 @@ printf("\n");
 printf("\n");
 	printf("ft_strcmp(\"k\",\"roucou\"):|%d|", ft_strcmp("k", "roucou"));
 printf("\n");
+
+printf("test 18");
 printf("\n");
+	printf("before strcmp src: \t|%s|, dest: \t|%s|", src, dest);
+printf("\n");
+	printf("strcmp(src, dest): \t|%d|", strcmp(src, dest));
+printf("\n");
+	printf("after strcmp src: \t|%s|, dest: \t|%s|", src, dest);
+printf("\n");
+	printf("before ft_strcmp src: \t|%s|, dest: \t|%s|", src, dest);
+printf("\n");
+	printf("ft_strcmp(src, dest): \t|%d|", ft_strcmp(src, dest));
+printf("\n");
+	printf("after ft_strcmp src: \t|%s|, dest: \t|%s|", src, dest);
+printf("\n");
+printf("\n");
+
 
 //segfault
 //printf("test segfault");
@@ -556,7 +572,7 @@ errno = 0;
 printf("\n");
 fd = open("main.c", O_RDONLY);
 testread = ft_read(fd, r, 10);
-	printf("ft_read(1, r, 10):\t|%d|", testread);
+	printf("ft_read(fd, r, 10):\t|%d|", testread);
 printf("\n");
 	printf("r: \t|%s|", r);
 printf("\n");
