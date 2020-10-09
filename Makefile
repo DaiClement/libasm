@@ -16,10 +16,6 @@ SRCS	=	\
 			ft_write.s\
 			ft_read.s\
 			ft_strdup.s\
-			# ft_show_registre.s\
-			# hello_world.s\
-			# star.s\
-			# factorial.s\
 			
 OBJS	=	${SRCS:.s=.o}
 
@@ -27,7 +23,7 @@ NAME	=	libasm.a
 
 FLAGS	=	-Wall -Wextra -Werror
 
-CC		=	gcc
+CC		=	clang
 
 X86_64	=	
 #			-arch x86_64 -Wl,-no_pie
@@ -68,7 +64,7 @@ re:		fclean all
 #		./testOnlyASM.out;
 
 test:	all ${MAIN_OBJS}
-		${CC} ${X86_64} -no-pie -o ${MAIN_OBJS:.o=.out} ${MAIN_OBJS} ${NAME} -I.;
+		${CC} ${X86_64} -o ${MAIN_OBJS:.o=.out} ${MAIN_OBJS} ${NAME} -I.;
 		./${TEST};
 
 norm:

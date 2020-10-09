@@ -27,6 +27,8 @@ strcmp_cmp:
 	jmp		strcmp_cmp
 
 cmp_ret1:
+	cmp		al, 0
+	je		cmp_ret0
 	mov		rax, 1
 	ret
 

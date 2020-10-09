@@ -6,7 +6,7 @@
 /*   By: cdai <cdai@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/11 14:59:45 by cdai              #+#    #+#             */
-/*   Updated: 2020/10/08 14:25:20 by cdai             ###   ########.fr       */
+/*   Updated: 2020/10/09 12:02:06 by cdai             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ printf("test 1");
 printf("\n");
 	printf("strlen(\"pouet\"): \t|%ld|", strlen("pouet"));
 printf("\n");
-	printf("ft_strlen(\"pouet\"): \t|%d|", ft_strlen("pouet"));
+	printf("ft_strlen(\"pouet\"): \t|%ld|", ft_strlen("pouet"));
 printf("\n");
 
 /*
@@ -43,7 +43,7 @@ printf("test 2");
 printf("\n");
 	printf("strlen(\"\"): \t\t|%ld|", strlen(""));
 printf("\n");
-	printf("ft_strlen(\"\"): \t\t|%d|", ft_strlen(""));
+	printf("ft_strlen(\"\"): \t\t|%ld|", ft_strlen(""));
 printf("\n");
 	
 /*
@@ -123,7 +123,8 @@ printf("\n");
 printf("\n");
 */
 
-printf("test 2");
+/*
+printf("test segfault");
 printf("\n");
 bzero(dest, 7);
 *dest = 'p';
@@ -142,6 +143,7 @@ printf("\n");
 	printf("after ft_strcpy src: \t|NULL|, dest: \t|NULL|", NULL);
 printf("\n");
 printf("\n");
+*/
 
 /* strcmp */
 	printf("|| ft_strcmp ||");
@@ -238,19 +240,23 @@ printf("\n");
 	printf("ft_strcmp(\"2\", \"26\"): \t|%d|", ft_strcmp("2", "26"));
 printf("\n");
 
-printf("test 11");
+/*
+printf("test segfault");
 printf("\n");
 	printf("strcmp(no_malloc, no_malloc): \t|%d|", strcmp(no_malloc, no_malloc));
 printf("\n");
 	printf("ft_strcmp(no_malloc, no_malloc):|%d|", ft_strcmp(no_malloc, no_malloc));
 printf("\n");
+*/
 
-printf("test 12");
+/*
+printf("test segfault");
 printf("\n");
 	printf("strcmp(NULL, NULL): \t|%d|", strcmp(NULL, NULL));
 printf("\n");
 	printf("ft_strcmp(NULL, NULL): \t|%d|", ft_strcmp(NULL, NULL));
 printf("\n");
+*/
 
 printf("test 13");
 printf("\n");
@@ -285,6 +291,13 @@ printf("\n");
 	printf("strcmp(\"k\", \"roucou\"): \t|%d|", strcmp("k", "roucou"));
 printf("\n");
 	printf("ft_strcmp(\"k\",\"roucou\"):|%d|", ft_strcmp("k", "roucou"));
+printf("\n");
+
+printf("test 18");
+printf("\n");
+	printf("strcmp(\"roucou\", \"roucou\"): \t|%d|", strcmp("roucou", "roucou"));
+printf("\n");
+	printf("ft_strcmp(\"roucou\",\"roucou\"):\t|%d|", ft_strcmp("roucou", "roucou"));
 printf("\n");
 
 printf("test 18");
@@ -580,10 +593,11 @@ printf("\n");
 printf("\n");
 close(fd);
 
+/*
 	char *rd;
 printf("------------------------------------------------------------------------");
 printf("\n");
-printf("test 2");
+printf("test segfault");
 printf("\n");
 bzero(r, 11);
 errno = 0;
@@ -611,6 +625,7 @@ printf("\n");
 	printf("errno: \t|%d|", errno);
 printf("\n");
 close(fd);
+*/
 
 printf("------------------------------------------------------------------------");
 printf("\n");
